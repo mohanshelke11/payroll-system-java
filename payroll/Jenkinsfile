@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the Maven project using Windows batch command                
-                dir('payrolsystem') {
+                dir('payroll') {
                     bat 'mvn clean package'
                 }
 
@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Run tests (if any) using Windows batch command
-                dir('payrolsystem') {
+                dir('payroll') {
                     bat 'mvn test'
                 }
             }
@@ -33,7 +33,7 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                dir('payrolsystem') {
+                dir('payroll') {
                     bat 'copy target\\*.war F:\\Takneekigyanguru\\Installation\\Software\\Tomcat\\apache-tomcat-10.1.23-windows-x64\\apache-tomcat-10.1.23\\webapps'
                 }
             }
